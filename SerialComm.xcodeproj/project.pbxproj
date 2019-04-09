@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C436ED12723D5C2CBFD03A3 /* Pods_SerialComm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABE7C97DC0DB31275C56404 /* Pods_SerialComm.framework */; };
 		F4BA27A62259A241007558D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BA27A52259A241007558D6 /* AppDelegate.swift */; };
 		F4BA27A82259A241007558D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BA27A72259A241007558D6 /* ViewController.swift */; };
 		F4BA27AA2259A247007558D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4BA27A92259A247007558D6 /* Assets.xcassets */; };
@@ -14,6 +15,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0803E55F1B405366AC36BDD9 /* Pods-SerialComm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SerialComm.release.xcconfig"; path = "Target Support Files/Pods-SerialComm/Pods-SerialComm.release.xcconfig"; sourceTree = "<group>"; };
+		4ABE7C97DC0DB31275C56404 /* Pods_SerialComm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SerialComm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2C31ECB007B3A51935CEFEE /* Pods-SerialComm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SerialComm.debug.xcconfig"; path = "Target Support Files/Pods-SerialComm/Pods-SerialComm.debug.xcconfig"; sourceTree = "<group>"; };
 		F4BA27A22259A241007558D6 /* SerialComm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SerialComm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4BA27A52259A241007558D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4BA27A72259A241007558D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,17 +32,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C436ED12723D5C2CBFD03A3 /* Pods_SerialComm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3247F63F05739932EB5DBBA5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C2C31ECB007B3A51935CEFEE /* Pods-SerialComm.debug.xcconfig */,
+				0803E55F1B405366AC36BDD9 /* Pods-SerialComm.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4522C2B078D081E9763A7CF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4ABE7C97DC0DB31275C56404 /* Pods_SerialComm.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F4BA27992259A241007558D6 = {
 			isa = PBXGroup;
 			children = (
 				F4BA27A42259A241007558D6 /* SerialComm */,
 				F4BA27A32259A241007558D6 /* Products */,
+				3247F63F05739932EB5DBBA5 /* Pods */,
+				4522C2B078D081E9763A7CF6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4BA27B22259A247007558D6 /* Build configuration list for PBXNativeTarget "SerialComm" */;
 			buildPhases = (
+				73437AFF6058039505A7ED20 /* [CP] Check Pods Manifest.lock */,
 				F4BA279E2259A241007558D6 /* Sources */,
 				F4BA279F2259A241007558D6 /* Frameworks */,
 				F4BA27A02259A241007558D6 /* Resources */,
+				EE253C53033F47F92A28C06A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,6 +154,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		73437AFF6058039505A7ED20 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SerialComm-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE253C53033F47F92A28C06A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SerialComm/Pods-SerialComm-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ORSSerialPort/ORSSerial.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ORSSerial.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SerialComm/Pods-SerialComm-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F4BA279E2259A241007558D6 /* Sources */ = {
@@ -269,6 +343,7 @@
 		};
 		F4BA27B32259A247007558D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2C31ECB007B3A51935CEFEE /* Pods-SerialComm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SerialComm/SerialComm.entitlements;
@@ -287,6 +362,7 @@
 		};
 		F4BA27B42259A247007558D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0803E55F1B405366AC36BDD9 /* Pods-SerialComm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SerialComm/SerialComm.entitlements;

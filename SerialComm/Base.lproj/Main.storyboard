@@ -740,9 +740,9 @@
                                 <levelIndicatorCell key="cell" continuous="YES" alignment="left" doubleValue="100" maxValue="100" warningValue="100" criticalValue="101" levelIndicatorStyle="continuousCapacity" id="hSy-QW-6M1"/>
                             </levelIndicator>
                             <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nm9-0a-lyq">
-                                <rect key="frame" x="18" y="155" width="344" height="19"/>
+                                <rect key="frame" x="18" y="155" width="344" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="egR-pC-iub">
+                                <sliderCell key="cell" state="on" alignment="left" maxValue="500" doubleValue="50" tickMarkPosition="above" numberOfTickMarks="25" sliderType="linear" id="egR-pC-iub">
                                     <connections>
                                         <action selector="speedSliderAction:" target="XfG-lQ-9wD" id="c4O-hT-5vX"/>
                                     </connections>
@@ -842,9 +842,6 @@
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="XKk-LB-ymh"/>
                                 </popUpButtonCell>
-                                <connections>
-                                    <action selector="portSelectorButtonClick:" target="XfG-lQ-9wD" id="Zwh-Ox-VlN"/>
-                                </connections>
                             </popUpButton>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HNF-dU-oGr">
                                 <rect key="frame" x="168" y="369" width="18" height="21"/>

@@ -51,6 +51,7 @@ class ViewController: NSViewController, ORSSerialPortDelegate {
             portSelector.addItem(withTitle: availablePort.name);
         }
         distanceSelector.addItem(withTitle: "steps")
+        distanceSelector.addItem(withTitle: "degrees")
         serialPort = serialPortManager.availablePorts[0];
 
     }
@@ -118,7 +119,7 @@ class ViewController: NSViewController, ORSSerialPortDelegate {
     }
     
     func serialPort(_ serialPort: ORSSerialPort, didReceive data: Data) {
-        if let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
+        if let string = NSString(data: data, encoding: String.Encoding.ascii.rawValue) {
             print(string);
         }
     }
@@ -128,7 +129,11 @@ class ViewController: NSViewController, ORSSerialPortDelegate {
         let distance = distanceField.stringValue
         if(serialPort!.isOpen){
             if(distanceSelector.titleOfSelectedItem == "steps") {
-                serialPort!.send(("x"+distance).data(using: .utf8)!)
+                serialPort!.send(("x"+distance).data(using: .ascii)!)
+                
+            }
+            else if(distanceSelector.titleOfSelectedItem == "degrees") {
+                serialPort!.send(("a"+distance).data(using: .ascii)!)
                 
             }
         }
@@ -137,7 +142,12 @@ class ViewController: NSViewController, ORSSerialPortDelegate {
     @IBAction func moveLeftButtonClick(_ sender: Any) {
         let distance = distanceField.stringValue
         if(serialPort!.isOpen){
-            if(distanceSelector.titleOfSelectedItem == "steps"){serialPort!.send(("x-"+distance).data(using: .utf8)!)}
+            if(distanceSelector.titleOfSelectedItem == "steps"){
+                serialPort!.send(("x-"+distance).data(using: .ascii)!)
+            }
+            else if(distanceSelector.titleOfSelectedItem == "degrees"){
+                serialPort!.send(("a-"+distance).data(using: .ascii)!)
+            }
         }
     }
 }
